@@ -5,6 +5,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static com.fasttrackit.utils.Constants.USER_EMAIL;
+import static com.fasttrackit.utils.Constants.USER_PASSWORD;
+
 @RunWith(SerenityRunner.class)
 public class LoginTest extends BaseTest {
 
@@ -12,7 +15,7 @@ public class LoginTest extends BaseTest {
     public void loginWithValidCredentialsTest() {
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLogin();
-        loginSteps.setCredentials("drh_monica@yahoo.com", "Mai@2022");
+        loginSteps.setCredentials(USER_EMAIL, USER_PASSWORD);
         loginSteps.clickLogin();
         loginSteps.verifyUsernameMessage("Alexandra Monica Rus");
     }
@@ -21,7 +24,7 @@ public class LoginTest extends BaseTest {
     public void loginWithValidCredentialsFollowedByEnterKey() {
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLogin();
-        loginSteps.setCredentials("drh_monica@yahoo.com", "Mai@2022");
+        loginSteps.setCredentials(USER_EMAIL, USER_PASSWORD);
         loginSteps.clickLoginWithEnterKey();
         loginSteps.verifyUsernameMessage("Alexandra Monica Rus");
     }
@@ -41,7 +44,7 @@ public class LoginTest extends BaseTest {
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLogin();
         String email = RandomStringUtils.randomAlphabetic(10) + "@email.com";
-        loginSteps.setCredentials(email, "Mai@2022");
+        loginSteps.setCredentials(email, USER_PASSWORD);
         loginSteps.clickLogin();
         loginSteps.verifyInvalidEmailMessage();
     }

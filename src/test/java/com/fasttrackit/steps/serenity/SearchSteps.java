@@ -44,4 +44,16 @@ public class SearchSteps extends ScenarioSteps {
         searchResultsPage.verifyAddToWishListMessage(product);
     }
 
+    @Step
+    public void setSortByPrice(){
+        searchResultsPage.setSortByDropdown("Price");
+    }
+
+    @Step
+    public void verifySortByPriceAscending() {
+        setSortByPrice();
+        Assert.assertTrue("Price is not ordered ascending!",
+                searchResultsPage.isSortByPriceAscending());
+    }
+
 }

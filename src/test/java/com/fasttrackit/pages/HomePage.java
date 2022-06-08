@@ -19,6 +19,8 @@ public class HomePage extends PageObject {
     private WebElementFacade searchField;
     @FindBy(css = "[title='Search']")
     private WebElementFacade searchIcon;
+    @FindBy(css = ".top-link-cart")
+    private WebElementFacade myCartLink;
 
     public void clickAccountLink() {
         clickOn(accountLink);
@@ -26,6 +28,10 @@ public class HomePage extends PageObject {
 
     public void clickLoginLink() {
         clickOn(loginLink);
+    }
+
+    public void clickMyCart() {
+        clickOn(myCartLink);
     }
 
     public void clickRegisterLink() {

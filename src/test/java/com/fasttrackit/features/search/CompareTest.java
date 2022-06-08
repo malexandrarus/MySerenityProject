@@ -4,6 +4,9 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static com.fasttrackit.utils.Constants.USER_EMAIL;
+import static com.fasttrackit.utils.Constants.USER_PASSWORD;
+
 @RunWith(SerenityRunner.class)
 public class CompareTest extends BaseTest {
 
@@ -16,7 +19,7 @@ public class CompareTest extends BaseTest {
 
     @Test
     public void addProductToCompareTestWithLogin() {
-        loginSteps.doLogin("drh_monica@yahoo.com", "Mai@2022");
+        loginSteps.doLogin(USER_EMAIL, USER_PASSWORD);
         searchSteps.doSearch("EARRINGS");
         compareSteps.addProductToCompare("EARRINGS");
         compareSteps.addToCompareSuccessMessage("Swing Time Earrings");
